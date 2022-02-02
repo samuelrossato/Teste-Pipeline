@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "010df211-9f6a-4e28-b02e-43ce179c11d8",
+		"name": "Consulta CEP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Via CEP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const body = JSON.parse(responseBody);\r",
+							"const headers = postman.getResponseHeader(\"Content-Type\");\r",
+							"\r",
+							"var cep = body.cep;\r",
+							"var logradouro = body.logradouro;\r",
+							"var complemento = body.complemento;\r",
+							"var bairro = body.bairro;\r",
+							"var localidade = body.localidade;\r",
+							"var uf = body.uf;\r",
+							"var ibge = body.ibge;\r",
+							"var gia = body.gia;\r",
+							"var ddd = body.ddd;\r",
+							"var siafi = body.siafi;\r",
+							"\r",
+							"\r",
+							"tests[\"valida_header\"]      = (headers === \"application/json; charset=utf-8\");\r",
+							"tests[\"valida_statuscode\"]  = (responseCode.code === 200);\r",
+							"\r",
+							"tests[\"valida_cep\"]         = (body.cep === cep)                 && (body.cep !== null);\r",
+							"tests[\"valida_logradouro\"]  = (body.logradouro === logradouro)    && (body.logradouro !== null);\r",
+							"tests[\"valida_complemento\"] = (body.complemento === complemento) && (body.complemento !== null);\r",
+							"tests[\"valida_bairro\"]      = (body.bairro === bairro)           && (body.complemento !== null);\r",
+							"tests[\"valida_localidade\"]  = (body.localidade === localidade)   && (body.localidade !== null);\r",
+							"tests[\"valida_uf\"]          = (body.uf === uf)                   && (body.uf !== null);\r",
+							"tests[\"valida_ibge\"]        = (body.ibge === ibge)               && (body.ibge !== null);\r",
+							"tests[\"valida_gia\"]         = (body.gia === gia)                 && (body.gia !== null);\r",
+							"tests[\"valida_ddd\"]         = (body.ddd === ddd)                 && (body.ddd !== null);\r",
+							"tests[\"valida_siafi\"]       = (body.siafi === siafi)             && (body.siafi !== null);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function zipCode() {\r",
+							"\r",
+							"    var zipCode = [\"02077-045\",\"13458-580\",\"03015-017\",\"05892-387\",\"08452-252\",\"04877-265\",\"08320-685\",\"04182-125\",\"02987-265\",\"08240-174\",\"04405-185\",\"88058-115\",\"88020-230\",\"88090-561\",\"88066-405\",\"88058-256\",\"88040-445\",\"88048-418\",\"88066-420\",\"88066-407\",\"52031-216\",\"50920-825\",\"50810-065\",\"52090-168\",\"52160-231\",\"52121-032\",\"50790-140\",\"51310-540\",\"52190-480\",\"50610-631\",\"41321-205\",\"41320-210\",\"41321-240\",\"41321-830\",\"41321-835\",\"41321-841\",\"41231-085\",\"41342-565\",\"41205-560\",\"41370-075\",\"23545-037\",\"23548-007\",\"23595-180\",\"23580-420\",\"23555-240\",\"23587-545\",\"23548-013\",\"23555-306\",\"23580-430\",\"23548-163\",\"30672-772\",\"31744-620\",\"30666-482\",\"30640-438\",\"30668-176\",\"31846-022\",\"31540-083\",\"30518-321\",\"30451-535\",\"31741-051\",\"69036-662\",\"69036-664\",\"69030-418\",\"69036-666\",\"69015-754\",\"69075-763\",\"69053-770\",\"69008-410\",\"69020-083\",\"69065-016\",\"74959-198\",\"74988-833\",\"74786-610\",\"74786-640\",\"74786-612\",\"74786-642\",\"74786-614\",\"74786-644\",\"74786-616\",\"74786-646\",\"64090-451\",\"64018-375\",\"64013-450\",\"64023-110\",\"64033-512\",\"64039-650\",\"64033-588\",\"64013-451\",\"64018-380\",\"64090-452\",\"29033-302\",\"29047-058\",\"29024-043\",\"29033-350\",\"29032-785\",\"29032-030\",\"29024-040\",\"29023-047\",\"29033-395\",\"29024-060\"];\r",
+							"\r",
+							"    var randomItem = zipCode[Math.floor(Math.random() * zipCode.length)];\r",
+							"    \r",
+							"    return randomItem; \r",
+							"\r",
+							"}\r",
+							"\r",
+							"pm.environment.set(\"ZipCode\", zipCode());\r",
+							"\r",
+							"\r",
+							"console.log(zipCode())"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "viacep.com.br/ws/{{ZipCode}}/json/",
+					"host": [
+						"viacep",
+						"com",
+						"br"
+					],
+					"path": [
+						"ws",
+						"{{ZipCode}}",
+						"json",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": ""
+		}
+	]
+}

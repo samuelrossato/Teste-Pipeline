@@ -1,0 +1,14 @@
+{
+	"id": "5f74fa91-87e7-4668-ae95-8d300518c2c5",
+	"name": "ViaCep",
+	"values": [
+		{
+			"key": "ZipCode",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-02-02T00:02:28.053Z",
+	"_postman_exported_using": "Postman/8.12.4"
+}
