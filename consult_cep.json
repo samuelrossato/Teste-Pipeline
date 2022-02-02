@@ -28,7 +28,7 @@
 							"\r",
 							"\r",
 							"tests[\"valida_header\"]      = (headers === \"application/json; charset=utf-8\");\r",
-							"tests[\"valida_statuscode\"]  = (responseCode.code === 201);\r",
+							"tests[\"valida_statuscode\"]  = (responseCode.code === 200);\r",
 							"\r",
 							"tests[\"valida_cep\"]         = (body.cep === cep)                 && (body.cep !== null);\r",
 							"tests[\"valida_logradouro\"]  = (body.logradouro === logradouro)    && (body.logradouro !== null);\r",
