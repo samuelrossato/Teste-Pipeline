@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "010df211-9f6a-4e28-b02e-43ce179c11d8",
+		"_postman_id": "2ec42064-5ba7-48b9-8ec3-c6ad20db06dd",
 		"name": "Consulta CEP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -28,7 +28,7 @@
 							"\r",
 							"\r",
 							"tests[\"valida_header\"]      = (headers === \"application/json; charset=utf-8\");\r",
-							"tests[\"valida_statuscode\"]  = (responseCode.code === 200);\r",
+							"tests[\"valida_statuscode\"]  = (responseCode.code === 201);\r",
 							"\r",
 							"tests[\"valida_cep\"]         = (body.cep === cep)                 && (body.cep !== null);\r",
 							"tests[\"valida_logradouro\"]  = (body.logradouro === logradouro)    && (body.logradouro !== null);\r",
